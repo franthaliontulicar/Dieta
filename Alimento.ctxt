@@ -2,5 +2,13 @@
 comment0.params=nombreAlimento\ proteinasGramo\ carbohidratosGramo\ grasasGramo
 comment0.target=Alimento(java.lang.String,\ float,\ float,\ float)
 comment1.params=
-comment1.target=void\ muestraDatos()
-numComments=2
+comment1.target=float\ getProteinas()
+comment2.params=
+comment2.target=float\ getCarbohidratos()
+comment3.params=
+comment3.target=float\ getGrasas()
+comment4.params=
+comment4.target=float\ getCaloriasTotales()
+comment5.params=
+comment5.target=void\ muestraDatos()
+numComments=6

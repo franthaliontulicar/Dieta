@@ -14,20 +14,37 @@ public class Alimento
 
     public Alimento(String nombreAlimento, float proteinasGramo, float carbohidratosGramo, float grasasGramo){
         nombre = nombreAlimento;       
-        proteinas = proteinasGramo * 4 / 100;        
-        carbohidratos = carbohidratosGramo * 4 / 100;
-        grasas = grasasGramo * 9 / 100;
+        proteinas = proteinasGramo * 4;        
+        carbohidratos = carbohidratosGramo * 4;
+        grasas = grasasGramo * 9 ;
 
+    }
+    
+    public float getProteinas(){
+        return proteinas;
+    }
+    
+     public float getCarbohidratos(){
+        return carbohidratos;
+    }
+    
+    
+     public float getGrasas(){
+        return grasas;
+    }
+    
+     public float getCaloriasTotales(){
+        float caloriasTotales = proteinas + carbohidratos + grasas;
+        return caloriasTotales;
     }
 
     public void muestraDatos(){
         System.out.println("----");
         System.out.println("Nombre:  "+nombre);
-        System.out.println("Proteinas por cada 100 gramos:   "+proteinas);
-        System.out.println("Carbohidratos por cada 100 gramos:   "+carbohidratos);
-        System.out.println("Grasas por cada 100 gramos:    "+grasas);
-        float calorias = proteinas + carbohidratos + grasas;
-        System.out.println("calorias:    "+calorias);
+        System.out.println("Proteinas por cada 100 gramos:   "+getProteinas());
+        System.out.println("Carbohidratos por cada 100 gramos:   "+getCarbohidratos());
+        System.out.println("Grasas por cada 100 gramos:    "+getGrasas());
+        System.out.println("calorias:    "+getCaloriasTotales());
         String mayoritario = "null";
         if(proteinas > carbohidratos){
             if(carbohidratos > grasas){

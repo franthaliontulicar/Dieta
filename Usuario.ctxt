@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=nombreDeUsuario
+comment0.target=Usuario(java.lang.String)
+comment1.params=alimento\ gramos
+comment1.target=void\ comer(Alimento,\ float)
+comment2.params=alimento
+comment2.target=void\ mostrarDatos(Alimento)
+numComments=3
