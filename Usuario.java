@@ -24,17 +24,20 @@ public class Usuario
     }
     
     public void comer(Alimento alimento, float gramos){
+            
        
          gramos = alimento.getProteinas() + alimento.getCarbohidratos()+ alimento.getGrasas()+ alimento.getCaloriasTotales();
             
     }
     
-    public void mostrarDatos(Alimento alimento){
+    public void mostrarDatos(){
+        String nombreAlimento = "null";
+        Alimento alimento = new Alimento(nombreAlimento,proteinas,carbohidratos,grasas);
         System.out.println("Nombre:    "+nombreCompleto);
         System.out.println("Gramos de proteinas ingeridas:    "+alimento.getProteinas());
-		System.out.println("Gramos de carbohidratos ingeridos:    "+alimento.getCarbohidratos());
-		System.out.println("Gramos de grasas ingeridas:    "+alimento.getGrasas());
-		System.out.println("Calorias totales ingeridas:    "+alimento.getCaloriasTotales());
+        System.out.println("Gramos de carbohidratos ingeridos:    "+alimento.getCarbohidratos());
+        System.out.println("Gramos de grasas ingeridas:    "+alimento.getGrasas());
+        System.out.println("Calorias totales ingeridas:    "+alimento.getCaloriasTotales());
     }
 
     
