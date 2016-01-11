@@ -24,9 +24,12 @@ public class Usuario
     }
     
     public void comer(Alimento alimento, float gramos){
+         proteinas = proteinas +(alimento.getProteinas()/100* gramos);
+        carbohidratos = proteinas +(alimento.getCarbohidratos()/100* gramos);
+         grasas = proteinas +(alimento.getGrasas()/100* gramos);
+        caloriasTotales = proteinas +(alimento.getCaloriasTotales()/100* gramos);
             
-       
-         gramos = alimento.getProteinas() + alimento.getCarbohidratos()+ alimento.getGrasas()+ alimento.getCaloriasTotales();
+         //gramos = alimento.getProteinas() + alimento.getCarbohidratos()+ alimento.getGrasas()+ alimento.getCaloriasTotales();
             
     }
     
