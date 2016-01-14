@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=float\ getCaloriasTotalesIngeridas()
 comment5.params=usuario2
 comment5.target=void\ comparar(Usuario)
-numComments=6
+comment6.params=alimento\ alimento2
+comment6.target=void\ alimentoMasCalorico(Alimento,\ Alimento)
+numComments=7

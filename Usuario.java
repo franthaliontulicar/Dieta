@@ -33,15 +33,15 @@ public class Usuario
     }
 
     public void mostrarDatos(){
-        float totalNutrientes = (proteinas + grasas + 			carbohidratos) / 100;
+        float totalNutrientes = (proteinas + grasas +           carbohidratos) / 100;
         String datosProteinas = "Gramos totales de proteinas ingeridos:     " + proteinas;
-        String datosCarbohidratos = "Gramos totales de carbohidratos ingeridos: " + 			carbohidratos;
+        String datosCarbohidratos = "Gramos totales de carbohidratos ingeridos: " +             carbohidratos;
         String datosGrasas = "Gramos totales de grasas ingeridos:        " + grasas;
         if (proteinas > 0) {
             datosProteinas = datosProteinas + " (" + proteinas / totalNutrientes + "%)";
         }
         if (carbohidratos > 0) {
-            datosCarbohidratos = datosCarbohidratos + " (" + carbohidratos / totalNutrientes + "%		)";
+            datosCarbohidratos = datosCarbohidratos + " (" + carbohidratos / totalNutrientes + "%       )";
         }
         if (grasas > 0) {
             datosGrasas = datosGrasas + " (" + grasas / totalNutrientes + "%)";
@@ -50,7 +50,7 @@ public class Usuario
         System.out.println(datosProteinas);    
         System.out.println(datosCarbohidratos);
         System.out.println(datosGrasas);
-        System.out.println("Calorias totales ingeridas:                " + caloriasTotales);	
+        System.out.println("Calorias totales ingeridas:                " + caloriasTotales);    
     }
 
     public String getNombre(){
@@ -76,5 +76,29 @@ public class Usuario
             }
         }
 
+    }
+
+    public void alimentoMasCalorico(Alimento alimento, Alimento alimento2){
+        String masCalorico = "null"; 
+        if(alimento.getCaloriasTotales() == alimento2.getCaloriasTotales()){
+            masCalorico = "iguales";
+            System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
+        }
+        else{
+            if(alimento.getCaloriasTotales() > alimento2.getCaloriasTotales()){
+                masCalorico = alimento.getNombre();
+                 System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
+            }
+            else{
+                if(alimento.getCaloriasTotales() < alimento2.getCaloriasTotales()){
+                    masCalorico = alimento2.getNombre();
+                     System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento2.getCaloriasTotales()+" calorias por cada 100 gramos )");
+                }
+                else{
+                System.out.println("No se ha ingerido ningun alimento ");
+                }
+            
+            }
+        }
     }
 }

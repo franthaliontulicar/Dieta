@@ -37,6 +37,11 @@ public class Alimento
         float caloriasTotales = proteinas + carbohidratos + grasas;
         return caloriasTotales;
     }
+    
+    public String getNombre(){
+    
+    return nombre;
+}
 
     public void muestraDatos(){
         System.out.println("----");
