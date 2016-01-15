@@ -15,4 +15,6 @@ comment6.params=alimento\ alimento2
 comment6.target=void\ alimentoMasCalorico(Alimento,\ Alimento)
 comment7.params=index
 comment7.target=void\ mostrarAlimentos(int)
-numComments=8
+comment8.params=nombreAlimento
+comment8.target=void\ vecesComido(java.lang.String)
+numComments=9

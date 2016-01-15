@@ -105,15 +105,25 @@ public class Usuario
     }
 
     public void mostrarAlimentos(int index){
-
-        if(index >=1 && index <= alimentoIngerido.size()){
-            alimento.muestraDatos();
-        }
-        else{
-            if(index < 1 || index >  alimentoIngerido.size()){
-                System.out.println("el usuario no  ingirio este alimento");
+        while(index <= alimentoIngerido.size()){
+            if(index >=1 && index <= alimentoIngerido.size()){
+                alimento.muestraDatos();
             }
+        }
+        if(index < 1 || index > alimentoIngerido.size()){
+
+            System.out.println("el usuario no  ingirio este alimento");
+
         }
 
     }
+    public void vecesComido(String nombreAlimento){
+        int contAli = 0;
+        if(nombreAlimento == alimento.getNombre()){
+            alimentoIngerido.add(alimento);
+            contAli = contAli +1;
+        }
+        System.out.println("el usuario ha ingerido "+nombreAlimento+" ");
+    }
+
 }
