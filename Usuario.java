@@ -104,12 +104,12 @@ public class Usuario
         }
     }
 
-    public void mostrarAlimentos(int index){
-        while(index <= alimentoIngerido.size()){
-            if(index >=1 && index <= alimentoIngerido.size()){
-                alimento.muestraDatos();
-            }
+    public void mostrarAlimentosComidos(int index){
+
+        if(index >=1 && index <= alimentoIngerido.size()){
+            alimento.muestraDatos();
         }
+
         if(index < 1 || index > alimentoIngerido.size()){
 
             System.out.println("el usuario no  ingirio este alimento");
@@ -117,13 +117,32 @@ public class Usuario
         }
 
     }
+
     public void vecesComido(String nombreAlimento){
         int contAli = 0;
-        if(nombreAlimento == alimento.getNombre()){
-            alimentoIngerido.add(alimento);
-            contAli = contAli +1;
+        if(nombreAlimento == alimento.getNombre()){//comparo el nombre de alimentos con el nombre de los alimento ingeridos
+            alimentoIngerido.add(alimento);//en caso de coincidencia se añaden al ArrayList
+            contAli = contAli +1;//se cuenta las veces que se consumen con un contador
+            System.out.println("el usuario ha ingerido "+nombreAlimento+" "+contAli+" veces.");
         }
-        System.out.println("el usuario ha ingerido "+nombreAlimento+" ");
+        else{
+            if(contAli == 1){
+                System.out.println("Este alimento se ha comido solo una vez ");
+
+            }
+
+        }
+
     }
 
+    public void alimentosConsumidosVariasVeces(){
+        String nombreAli = "";
+        int contRep = 0;
+        if(alimento.getNombre() == nombreAli){
+            alimento.getNombre();
+            contRep = contRep + 1;
+
+        }
+
+    }
 }
