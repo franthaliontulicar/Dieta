@@ -13,4 +13,6 @@ comment5.params=usuario2
 comment5.target=void\ comparar(Usuario)
 comment6.params=alimento\ alimento2
 comment6.target=void\ alimentoMasCalorico(Alimento,\ Alimento)
-numComments=7
+comment7.params=index
+comment7.target=void\ mostrarAlimentos(int)
+numComments=8

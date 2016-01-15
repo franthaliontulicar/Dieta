@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Usuario here.
  * 
@@ -12,6 +12,8 @@ public class Usuario
     private float carbohidratos;
     private float grasas;
     private float caloriasTotales;
+    private Alimento alimento;
+    private ArrayList<Alimento> alimentoIngerido;
 
     public Usuario(String nombreDeUsuario){
         nombreCompleto = nombreDeUsuario;
@@ -19,6 +21,7 @@ public class Usuario
         carbohidratos = 0;
         grasas = 0;
         caloriasTotales = 0;
+        alimentoIngerido = new ArrayList<Alimento>();
 
     }
 
@@ -29,7 +32,6 @@ public class Usuario
         caloriasTotales = proteinas +(alimento.getCaloriasTotales()/100* gramos);
 
         //gramos = alimento.getProteinas() + alimento.getCarbohidratos()+ alimento.getGrasas()+ alimento.getCaloriasTotales();
-
     }
 
     public void mostrarDatos(){
@@ -87,18 +89,31 @@ public class Usuario
         else{
             if(alimento.getCaloriasTotales() > alimento2.getCaloriasTotales()){
                 masCalorico = alimento.getNombre();
-                 System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
+                System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
             }
             else{
                 if(alimento.getCaloriasTotales() < alimento2.getCaloriasTotales()){
                     masCalorico = alimento2.getNombre();
-                     System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento2.getCaloriasTotales()+" calorias por cada 100 gramos )");
+                    System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento2.getCaloriasTotales()+" calorias por cada 100 gramos )");
                 }
                 else{
-                System.out.println("No se ha ingerido ningun alimento ");
+                    System.out.println("No se ha ingerido ningun alimento ");
                 }
-            
+
             }
         }
+    }
+
+    public void mostrarAlimentos(int index){
+
+        if(index >=1 && index <= alimentoIngerido.size()){
+            alimento.muestraDatos();
+        }
+        else{
+            if(index < 1 || index >  alimentoIngerido.size()){
+                System.out.println("el usuario no  ingirio este alimento");
+            }
+        }
+
     }
 }
