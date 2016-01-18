@@ -12,7 +12,7 @@ public class Usuario
     private float carbohidratos;
     private float grasas;
     private float caloriasTotales;
-    private Alimento alimento;
+    private Alimento alimentoMasCalorico;
     private ArrayList<Alimento> alimentoIngerido;
 
     public Usuario(String nombreDeUsuario){
@@ -21,6 +21,7 @@ public class Usuario
         carbohidratos = 0;
         grasas = 0;
         caloriasTotales = 0;
+        alimentoMasCalorico = null;
         alimentoIngerido = new ArrayList<Alimento>();
 
     }
@@ -30,6 +31,16 @@ public class Usuario
         carbohidratos = proteinas +(alimento.getCarbohidratos()/100* gramos);
         grasas = proteinas +(alimento.getGrasas()/100* gramos);
         caloriasTotales = proteinas +(alimento.getCaloriasTotales()/100* gramos);
+        if (alimentoMasCalorico != null) {
+            if (alimento.getCaloriasTotales() >= alimentoMasCalorico.getCaloriasTotales()) {
+            alimentoMasCalorico = alimento;
+            }
+        }
+        else {
+            alimentoMasCalorico = alimento;
+        }
+        
+        alimentoIngerido.add(alimento);
 
         //gramos = alimento.getProteinas() + alimento.getCarbohidratos()+ alimento.getGrasas()+ alimento.getCaloriasTotales();
     }
@@ -81,68 +92,63 @@ public class Usuario
     }
 
     public void alimentoMasCalorico(Alimento alimento, Alimento alimento2){
-        String masCalorico = "null"; 
-        if(alimento.getCaloriasTotales() == alimento2.getCaloriasTotales()){
-            masCalorico = "iguales";
-            System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
+        if (alimentoMasCalorico == null) {
+            System.out.println("No has consumido ningun alimento");
         }
-        else{
-            if(alimento.getCaloriasTotales() > alimento2.getCaloriasTotales()){
-                masCalorico = alimento.getNombre();
-                System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento.getCaloriasTotales()+" calorias por cada 100 gramos )");
-            }
-            else{
-                if(alimento.getCaloriasTotales() < alimento2.getCaloriasTotales()){
-                    masCalorico = alimento2.getNombre();
-                    System.out.println("El alimento mas calorico ingerido por el usuario es "+masCalorico+" ("+alimento2.getCaloriasTotales()+" calorias por cada 100 gramos )");
-                }
-                else{
-                    System.out.println("No se ha ingerido ningun alimento ");
-                }
-
-            }
-        }
+        else {
+            System.out.println("El alimento mas calorico es: " + alimentoMasCalorico.getNombre() +
+                   "(" + alimentoMasCalorico.getCaloriasTotales() + ")");
+          }
     }
 
-    public void mostrarAlimentosComidos(int index){
-
-        if(index >=1 && index <= alimentoIngerido.size()){
-            alimento.muestraDatos();
-        }
-
-        if(index < 1 || index > alimentoIngerido.size()){
-
-            System.out.println("el usuario no  ingirio este alimento");
-
+    public void muestraAlimentoPorPosicion(int posicion)
+    {
+        if ((posicion >= 1) && (posicion <= alimentoIngerido.size())) {
+            alimentoIngerido.get(posicion-1).muestraDatos();
+        } 
+        else {
+            System.out.println("La posicion dada no es valida");
         }
 
     }
 
-    public void vecesComido(String nombreAlimento){
-        int contAli = 0;
-        if(nombreAlimento == alimento.getNombre()){//comparo el nombre de alimentos con el nombre de los alimento ingeridos
-            alimentoIngerido.add(alimento);//en caso de coincidencia se añaden al ArrayList
-            contAli = contAli +1;//se cuenta las veces que se consumen con un contador
-            System.out.println("el usuario ha ingerido "+nombreAlimento+" "+contAli+" veces.");
-        }
-        else{
-            if(contAli == 1){
-                System.out.println("Este alimento se ha comido solo una vez ");
-
+    public void vecesComido(String nombreAlimento){    
+        int contAli = 0;    
+        for(Alimento alimento : alimentoIngerido){        
+            if(alimento.getNombre().contains( nombreAlimento)){//comparo el nombre 
+                contAli = contAli +1;//se cuenta las veces que se consumen con un contador
+                System.out.println("el usuario ha ingerido "+nombreAlimento+" "+contAli+" veces.");
+            }
+            if(contAli <= 1){
+                System.out.println("El alimento no se comió más de una vez");
+            }
+            else {
+                System.out.println("El alimento se comio más de una ve  z: " + contAli + " veces");
             }
 
         }
-
     }
 
     public void alimentosConsumidosVariasVeces(){
-        String nombreAli = "";
-        int contRep = 0;
-        if(alimento.getNombre() == nombreAli){
-            alimento.getNombre();
-            contRep = contRep + 1;
-
+        int contAli = 0;
+        for(Alimento alimento : alimentoIngerido){
+            if(numeroVecesIngeridoAlimento(alimento) > 1){
+                //System.out.println(alimento.getNombre());
+                contAli++;
+                System.out.println(contAli);
+            } 
         }
+    
+    }
+    
+    public int numeroVecesIngeridoAlimento(Alimento nombreAli){
+        int contRep = 0;
+        for(Alimento alimento : alimentoIngerido){
+            if(alimento.getNombre() == nombreAli.getNombre()){
+                contRep = contRep + 1;//contRep++;
 
+            }
+        }
+        return contRep;
     }
 }
